@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesta de Frutas</title>
+</head>
+<script>
+    window.onload = function(){
+        const listaFrutas = document.querySelectorAll("#listaFrutas > li");
+        const cesta = document.querySelector("#cesta");
+        const total = document.querySelector("#total");
+
+        let tl = 0;
+
+        listaFrutas.forEach(function(fruta){
+            fruta.addEventListener('click', function(){
+                cesta.textContent += `${fruta.textContent} `;
+                tl += Number(fruta.dataset.preco);
+                total.value = tl;
+            })
+        })
+    }
+
+</script>
+<body>
+    <ul id="listaFrutas">
+        <li data-preco="1.80">Morango</li>
+        <li data-preco="15.00">Maconha</li>
+        <li data-preco="7.75">Uva</li>
+        <li data-preco="9.99">Pera</li>
+        <li data-preco="4.30">Tomate</li>
+    </ul>
+    <div id="cesta"></div>
+
+    <input id="total" type="text" name="total" value="">
+    
+</body>
+</html>
